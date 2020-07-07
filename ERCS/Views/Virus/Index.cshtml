@@ -1,0 +1,11 @@
+﻿@model ERCS.ViewModel.VirusVMs.VirusListVM
+@inject IStringLocalizer<WalkingTec.Mvvm.Core.Program> Localizer;
+
+<wt:searchpanel vm="@Model" reset-btn="true">
+<wt:row items-per-row="ItemsPerRowEnum.Three">
+<wt:textbox field="Searcher.VirusName" />
+<wt:textbox field="Searcher.VirusCode" />
+<wt:combobox field="Searcher.VirusType" empty-text="@Localizer["All"]" />
+</wt:row>
+</wt:searchpanel>
+<wt:grid vm="@Model" url="/Virus/Search"/>
