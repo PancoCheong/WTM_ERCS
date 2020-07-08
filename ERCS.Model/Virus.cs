@@ -16,9 +16,9 @@ namespace ERCS.Model
         [Required(ErrorMessage = "病毒名稱是必填欄位")]
         public string VirusName { get; set; }   
 
-        [Display(Name = "病毒號碼")]
-        [Required(ErrorMessage = "病毒號碼是必填欄位")]
-        [StringLength(10, ErrorMessage = "病毒號碼最多10個字符")]    //not only validation, it also affect data field in database: varchar(10)
+        [Display(Name = "病毒編號")]
+        [Required(ErrorMessage = "病毒編號是必填欄位")]
+        [StringLength(10, ErrorMessage = "病毒編號最多10個字符")]    //not only validation, it also affect data field in database: varchar(10)
         public string VirusCode { get; set; }
 
         [Display(Name = "病毒描述")]
@@ -28,5 +28,8 @@ namespace ERCS.Model
         [Required(ErrorMessage = "病毒種類是必填欄位")]
         public VirusTypeEnum? VirusType { get; set; } //Enum must have value by default
 
+        // Many-to-Many relationship
+        [Display(Name = "患者")]
+        public List<PatientVirus> Patients { get; set; }
     }
 }

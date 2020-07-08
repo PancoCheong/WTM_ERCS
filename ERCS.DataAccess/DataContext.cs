@@ -10,18 +10,28 @@ namespace ERCS.DataAccess
 {
     public class DataContext : FrameworkContext
     {
+        public DbSet<Location> Locations { get; set; } //database table
         public DbSet<ControlCenter> ControlCenters { get; set; } //database table
         public DbSet<Hospital> Hospitals { get; set; } //database table
-        public DbSet<Location> Locations { get; set; } //database table
         public DbSet<Patient> Patients { get; set; } //database table
         public DbSet<Report> Reports { get; set; } //database table
         public DbSet<Virus> Viruses { get; set; } //database table
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Patient>().HasKey(x => x.IdNumber); //**key** define index for IdNumber column in Patient table
+
+            base.OnModelCreating(modelBuilder);
+        }
 
         public DataContext(CS cs)
              : base(cs)
         {
         }
-
+        public DataContext(string cs, DBTypeEnum dbtype)
+            : base(cs, dbtype)
+        {
+        }
         public DataContext(string cs, DBTypeEnum dbtype, string version=null)
              : base(cs, dbtype, version)
         {

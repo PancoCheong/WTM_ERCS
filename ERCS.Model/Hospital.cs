@@ -8,7 +8,7 @@ namespace ERCS.Model
 {
     public enum HospitalLevel
     {
-        [Display(Name = "三級醫院")]    // can set attribute to Enum
+        [Display(Name = "三級醫院")]    //**key** can set attribute to Enum
         Class3,
         [Display(Name = "二級醫院")]
         Class2,
@@ -27,9 +27,10 @@ namespace ERCS.Model
 
         // Location and LocationId are tied together to create a table relationship
         // one-to-many relationship: one City to many Hospital
-        public Location Location { get; set; }      //create relationship with City
         [Display(Name = "醫院地點")]
-        [Required(ErrorMessage = "醫院地點是必填欄位")]
-        public Guid? LocationId { get; set; }    //Foreign Key is LocationId
+        public Location Location { get; set; }      //create relationship with City
+        //[Display(Name = "醫院地點")]
+        //[Required(ErrorMessage = "醫院地點是必填欄位")]
+        public Guid? LocationId { get; set; }    //Foreign Key
     }
 }

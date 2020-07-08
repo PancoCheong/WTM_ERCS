@@ -1,0 +1,14 @@
+﻿@model ERCS.ViewModel.Data.HospitalVMs.HospitalVM
+@inject IStringLocalizer<WalkingTec.Mvvm.Core.Program> Localizer;
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:textbox field="Entity.Name" />
+<wt:combobox field="Entity.Level" />
+<wt:combobox field="Entity.LocationId" items="AllLocations"/>
+</wt:row>
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton />
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

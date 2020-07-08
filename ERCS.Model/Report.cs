@@ -16,9 +16,10 @@ namespace ERCS.Model
         [Display(Name = "備註")]
         public string Remark { get; set; }
 
+        [Display(Name = "患者名稱")]
         public Patient Patient { get; set; }
-        [Display(Name = "病人名稱")]
-        [Required(ErrorMessage = "病人名稱是必填欄位")]
-        public Guid? PatientId { get; set; }
+        //[Display(Name = "患者名稱")]
+        //[Required(ErrorMessage = "患者名稱是必填欄位")]
+        public int? PatientId { get; set; } //Foreign Key (GUID is overrided by integer)
     }
 }

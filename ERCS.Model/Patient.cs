@@ -30,6 +30,7 @@ namespace ERCS.Model
         Death
     }
 
+    [Table("MyPatients")]  //**key** Define different name in Database; however, Patients is still being used in code level
     public class Patient : PersistPoco
     {
         // **key**
@@ -37,8 +38,12 @@ namespace ERCS.Model
         // BasePoco has 4 more properties than TopBasePoco: CreateTime, CreateBy, UpdateTime, UpdateBy
         // PersistPoco has 1 more property than BasePoco: IsValid  (avoid physically delete record, just marked invalid)
 
-        [Display(Name = "病人名稱")]
-        [Required(ErrorMessage = "病人名稱是必填欄位")]
+        //**key** These two lines override the WTM default data type for ID column (ie. GUID) 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public new int ID { get; set; }
+
+        [Display(Name = "患者名稱")]
+        [Required(ErrorMessage = "患者名稱是必填欄位")]
         public string PatientName { get; set; }
 
         [Display(Name = "證件號碼")]
@@ -56,8 +61,8 @@ namespace ERCS.Model
 
         public GenderEnum? Gender { get; set; }     // ? means optional, it allows UI to show "please select a value" on drop-down list
 
-        [Display(Name = "病人狀態")]
-        [Required(ErrorMessage = "病人狀態是必填欄位")]
+        [Display(Name = "患者狀態")]
+        [Required(ErrorMessage = "患者狀態是必填欄位")]
         public PatientStatusEnum? Status { get; set; }
 
         [Display(Name = "出生日期")]
@@ -74,20 +79,26 @@ namespace ERCS.Model
 
         // Location and LocationId are tied together to create a table relationship
         // one-to-many relationship: one City to many Hospital
+        [Display(Name = "藉貫")]
         public Location Location { get; set; }      //create relationship with City
-        [Display(Name = "中心地點")]
-        [Required(ErrorMessage = "中心地點是必填欄位")]
-        public Guid? LocationId { get; set; }    //Foreign Key is LocationId
+        //[Display(Name = "藉貫")]
+        //[Required(ErrorMessage = "藉貫是必填欄位")]
+        public Guid? LocationId { get; set; }    //Foreign Key
 
+        [Display(Name = "所屬醫院")]
         public Hospital Hospital { get; set; }      //create relationship with City
-        [Display(Name = "醫院名稱")]
-        [Required(ErrorMessage = "醫院名稱是必填欄位")]
-        public Guid? HospitalId { get; set; }    //Foreign Key is LocationId
+        //[Display(Name = "醫院名稱")]
+        //[Required(ErrorMessage = "醫院名稱是必填欄位")]
+        public Guid? HospitalId { get; set; }    //Foreign Key
 
 
-        public FileAttachment Photo { get; set; }      //create relationship with City
         [Display(Name = "相片")]
-        public Guid? PhotoId { get; set; }    //Foreign Key is LocationId
+        public FileAttachment Photo { get; set; }      //create relationship with City
+        //[Display(Name = "相片")]
+        public Guid? PhotoId { get; set; }    //Foreign Key
 
+        // Many-to-Many relationship
+        [Display(Name = "病毒")]
+        public List<PatientVirus> Viruses { get; set; }
     }
 }

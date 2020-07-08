@@ -1,0 +1,9 @@
+﻿@model ERCS.ViewModel.Data.ControlCenterVMs.ControlCenterListVM
+@inject IStringLocalizer<WalkingTec.Mvvm.Core.Program> Localizer;
+
+<wt:searchpanel vm="@Model" reset-btn="true">
+<wt:row items-per-row="ItemsPerRowEnum.Three">
+<wt:textbox field="Searcher.Name" />
+</wt:row>
+</wt:searchpanel>
+<wt:grid vm="@Model" url="/Data/ControlCenter/Search"/>

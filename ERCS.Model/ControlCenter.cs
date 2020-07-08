@@ -14,9 +14,10 @@ namespace ERCS.Model
 
         // Location and LocationId are tied together to create a table relationship
         // one-to-many relationship: one City to many Hospital
-        public Location Location { get; set; }      //create relationship with City
         [Display(Name = "中心地點")]
-        [Required(ErrorMessage = "中心地點是必填欄位")]
-        public Guid? LocationId { get; set; }    //Foreign Key is LocationId
+        public Location Location { get; set; }      //create relationship with City
+        //[Display(Name = "中心地點")]
+        //[Required(ErrorMessage = "中心地點是必填欄位")]
+        public Guid? LocationId { get; set; }    //Foreign Key
     }
 }
