@@ -19,7 +19,7 @@ namespace ERCS.DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Patient>().HasKey(x => x.IdNumber); //**key** define index for IdNumber column in Patient table
+            modelBuilder.Entity<Patient>().HasIndex(x => x.IdNumber); //**key** define index for IdNumber column in Patient table
 
             base.OnModelCreating(modelBuilder);
         }
