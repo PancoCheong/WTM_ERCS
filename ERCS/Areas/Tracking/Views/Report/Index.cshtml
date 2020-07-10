@@ -1,0 +1,10 @@
+﻿@model ERCS.ViewModel.Tracking.ReportVMs.ReportListVM
+@inject IStringLocalizer<WalkingTec.Mvvm.Core.Program> Localizer;
+
+<wt:searchpanel vm="@Model" reset-btn="true">
+<wt:row items-per-row="ItemsPerRowEnum.Three">
+<wt:textbox field="Searcher.Temperature" />
+<wt:combobox field="Searcher.PatientId" items="Searcher.AllPatients" empty-text="@Localizer["All"]" />
+</wt:row>
+</wt:searchpanel>
+<wt:grid vm="@Model" url="/Tracking/Report/Search"/>

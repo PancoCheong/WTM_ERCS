@@ -55,6 +55,7 @@ namespace ERCS.Model
         // search baidu: 身份证正则表达式
         // https://blog.csdn.net/weixin_44588757/article/details/89968629
         // omit / at the beginning and the end /
+        //身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X
 
         [Display(Name = "性別")]
         [Required(ErrorMessage = "性別是必填欄位")]

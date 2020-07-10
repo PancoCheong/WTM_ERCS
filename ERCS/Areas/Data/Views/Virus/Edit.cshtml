@@ -1,0 +1,17 @@
+﻿@model ERCS.ViewModel.Data.VirusVMs.VirusVM
+@inject IStringLocalizer<WalkingTec.Mvvm.Core.Program> Localizer;
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:textbox field="Entity.VirusName" />
+<wt:textbox field="Entity.VirusCode" />
+<wt:textbox field="Entity.Remark" />
+<wt:combobox field="Entity.VirusType" />
+<wt:checkbox field="SelectedPatientsIDs" items="AllPatientss"/>
+</wt:row>
+    <wt:hidden field="Entity.ID" />
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton />
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

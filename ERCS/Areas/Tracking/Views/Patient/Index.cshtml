@@ -1,0 +1,15 @@
+﻿@model ERCS.ViewModel.Tracking.PatientVMs.PatientListVM
+@inject IStringLocalizer<WalkingTec.Mvvm.Core.Program> Localizer;
+
+<wt:searchpanel vm="@Model" reset-btn="true">
+<wt:row items-per-row="ItemsPerRowEnum.Three">
+<wt:textbox field="Searcher.PatientName" />
+<wt:textbox field="Searcher.IdNumber" />
+<wt:combobox field="Searcher.Gender" empty-text="@Localizer["All"]" />
+<wt:combobox field="Searcher.Status" empty-text="@Localizer["All"]" />
+<wt:combobox field="Searcher.LocationId" items="Searcher.AllLocations" empty-text="@Localizer["All"]" />
+<wt:combobox field="Searcher.HospitalId" items="Searcher.AllHospitals" empty-text="@Localizer["All"]" />
+<wt:combobox field="Searcher.SelectedVirusesIDs" items="Searcher.AllVirusess" empty-text="@Localizer["All"]" />
+</wt:row>
+</wt:searchpanel>
+<wt:grid vm="@Model" url="/Tracking/Patient/Search"/>

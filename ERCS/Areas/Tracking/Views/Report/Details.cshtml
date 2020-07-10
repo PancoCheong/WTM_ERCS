@@ -1,0 +1,13 @@
+﻿@model ERCS.ViewModel.Tracking.ReportVMs.ReportVM
+@inject IStringLocalizer<WalkingTec.Mvvm.Core.Program> Localizer;
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:display field="Entity.Temperature" />
+<wt:display field="Entity.Remark" />
+<wt:display field="Entity.Patient.PatientName" />
+</wt:row>
+    <wt:row align="AlignEnum.Right">
+        <wt:closebutton />
+    </wt:row>
+</wt:form>
