@@ -20,7 +20,7 @@ namespace ERCS.Controllers
         [AllRights]
         public IActionResult Index()
         {
-            ViewData["title"] = "WTM";
+            ViewData["title"] = "ERCS";
             return View();
         }
 

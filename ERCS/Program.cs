@@ -65,6 +65,7 @@ namespace ERCS
                             }, new string[] { });
                             c.AddSecurityRequirement(sr);
                         });
+                        x.AddRazorPages().AddRazorRuntimeCompilation();
                     });
                      webBuilder.Configure(x =>
                      {

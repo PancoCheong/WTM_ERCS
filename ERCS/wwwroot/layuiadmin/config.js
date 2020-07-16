@@ -11,7 +11,7 @@ layui.define(['laytpl', 'layer', 'element', 'util'], function (exports) {
     , pageTabs: $.cookie("pagemode") === 'Tab' //tab mode
 
 
-    , name: 'WTM'
+    , name: 'ERCS'
     , tableName: 'layuiAdmin' //local storage name
     , MOD_NAME: '_wtm' 
 

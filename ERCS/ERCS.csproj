@@ -12,6 +12,7 @@
 
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.6" />
     <PackageReference Include="WalkingTec.Mvvm.TagHelpers.LayUI" Version="3.6.8" />
     <PackageReference Include="WalkingTec.Mvvm.Mvc.Admin" Version="3.6.8" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc4" />
@@ -22,7 +23,7 @@
    <ProjectReference Include="..\ERCS.Model\ERCS.Model.csproj" />
     <ProjectReference Include="..\ERCS.DataAccess\ERCS.DataAccess.csproj" />
     <ProjectReference Include="..\ERCS.ViewModel\ERCS.ViewModel.csproj" />
- </ItemGroup >
+ </ItemGroup>
 </Project>
 
 
