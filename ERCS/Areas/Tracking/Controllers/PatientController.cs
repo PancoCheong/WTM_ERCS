@@ -7,7 +7,7 @@ using WalkingTec.Mvvm.Core.Extensions;
 using ERCS.ViewModel.Tracking.PatientVMs;
 
 namespace ERCS.Controllers
-{
+{   // "Jwt and Cookie" is default, doesn't need to specify [AuthorizeJwt]
     [Area("Tracking")]
     [ActionDescription("病例管理")]
     public partial class PatientController : BaseController
@@ -16,13 +16,13 @@ namespace ERCS.Controllers
         [ActionDescription("Search")]
         public ActionResult Index()
         {
-            var vm = CreateVM<PatientListVM>();
-            return PartialView(vm);
+            var vm = CreateVM<PatientListVM>(); // VM has both data binding and business logic
+            return PartialView(vm);            // return View in most case
         }
 
         [ActionDescription("Search")]
         [HttpPost]
-        public string Search(PatientListVM vm)
+        public string Search(PatientListVM vm) //ListVM -- data into List component of UI
         {
             if (ModelState.IsValid)
             {

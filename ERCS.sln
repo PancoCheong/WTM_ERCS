@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERCS.ViewModel", "ERCS.View
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERCS.Test", "ERCS.Test\ERCS.Test.csproj", "{F6412067-DDA4-4C62-9F28-B54D9EB24A93}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp1", "BlazorApp1\BlazorApp1.csproj", "{7E49C64F-B180-4BA8-9DB3-F81F4ECA55C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{F6412067-DDA4-4C62-9F28-B54D9EB24A93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6412067-DDA4-4C62-9F28-B54D9EB24A93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6412067-DDA4-4C62-9F28-B54D9EB24A93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E49C64F-B180-4BA8-9DB3-F81F4ECA55C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E49C64F-B180-4BA8-9DB3-F81F4ECA55C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E49C64F-B180-4BA8-9DB3-F81F4ECA55C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E49C64F-B180-4BA8-9DB3-F81F4ECA55C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

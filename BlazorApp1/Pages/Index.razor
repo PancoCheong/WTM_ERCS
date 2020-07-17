@@ -1,0 +1,40 @@
+﻿@page "/Client"
+@inject Blazored.LocalStorage.ISyncLocalStorageService localStorage
+@inject NavigationManager NavigationManager
+@inject HttpClient Http
+
+@using System.Text.Json
+@using BlazorApp1.Model
+
+<h1>Welcome to Virus Tracking System</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+@code
+{
+    protected override async Task OnInitializedAsync()
+    {
+        string token = localStorage.GetItem<string>("token");
+        string rtoken = localStorage.GetItem<string>("rtoken");
+        if (token == null)
+        {
+            NavigationManager.NavigateTo("/client/login");
+        }
+        else
+        {
+            var res = await Http.PostAsync("/api/_Account/RefreshToken?refreshToken=" + rtoken, null);
+            if (res.IsSuccessStatusCode == true)
+            {
+                var jwt = JsonSerializer.Deserialize<Token>(await res.Content.ReadAsStringAsync());
+                localStorage.SetItem("token", jwt.access_token);
+                localStorage.SetItem("rtoken", jwt.refresh_token);
+            }
+            else
+            {
+                NavigationManager.NavigateTo("/client/login");
+            }
+        }
+    }
+}
