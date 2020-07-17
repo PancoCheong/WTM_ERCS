@@ -5,6 +5,8 @@ using WalkingTec.Mvvm.Core;
 using WalkingTec.Mvvm.Mvc;
 using WalkingTec.Mvvm.Core.Extensions;
 using ERCS.ViewModel.Data.LocationVMs;
+using ERCS.Model;
+using System.Linq;
 
 namespace ERCS.Controllers
 {
@@ -211,6 +213,14 @@ namespace ERCS.Controllers
         public IActionResult ExportExcel(LocationListVM vm)
         {
             return vm.GetExportData();
+        }
+
+        // 7. Implement the GetChildLocation method
+        //    the trigger-url will append the current location ID as input parameter
+        public IActionResult GetChildLocation(Guid id)
+        {
+            var childLocation = DC.Set<Location>().Where(x => x.ParentId == id).GetSelectListItems(LoginUserInfo.DataPrivileges, null, x => x.Name);
+            return Json(childLocation); //Json - return with HTTP status code == 200
         }
 
     }
