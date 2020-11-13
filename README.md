@@ -1,7 +1,7 @@
 # WTM_ERCS
 
 .net core 快速开发框架 WTM系列视频教程
-https://www.bilibili.com/video/av86527514/?p=1
+https://edu.csdn.net/course/play/27568
 
 模拟一个肺炎疫情上报防控系统的开发过程,系统的功能有:
 - 基础数据的维护(省市区县，医院，疾控中心，病毒库等)
